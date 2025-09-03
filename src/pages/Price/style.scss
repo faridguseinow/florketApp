@@ -1,11 +1,15 @@
 .pricelist_container {
-    padding: 72px 16px;
+    padding: 72px 16px 93px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 16px;
     font-family: var(--f-regular);
+
+    .googlesheets_container {
+        width: -webkit-fill-available;
+    }
 
     .header_search {
         width: 100%;
