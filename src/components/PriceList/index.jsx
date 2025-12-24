@@ -58,18 +58,18 @@ const PriceList = ({ searchTerm, fontSize, reloadKey, selectedCategory }) => {
             <thead>
               <tr>
                 <th>Наименование</th>
-                <th>Опт</th>
-                <th>Доп</th>
-                <th>Розн</th>
+
+                <th>Цена</th>
+
               </tr>
             </thead>
             <tbody>
               {items.map((item, idx) => (
                 <tr key={idx}>
                   <td>{item.name}</td>
-                  <td>{format(item.wholesalePrice)}</td>
+
                   <td>{format(item.extraPrice)}</td>
-                  <td>{format(item.retailPrice)}</td>
+
                 </tr>
               ))}
             </tbody>

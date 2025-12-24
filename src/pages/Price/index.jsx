@@ -11,7 +11,7 @@ export default function Price() {
   const [categories, setCategories] = useState([]);
 
   const increaseFontSize = () => setFontSize(f => Math.min(f + 1, 20));
-  const decreaseFontSize = () => setFontSize(f => Math.max(f - 1, 8));
+  const decreaseFontSize = () => setFontSize(f => Math.max(f - 1, 14));
 
   useEffect(() => {
     fetch('https://gfcc-price-api-server.onrender.com/api/prices')
@@ -45,13 +45,6 @@ export default function Price() {
         <div className="titles">
           <div className="title_left">
             <h1>Прайслист</h1>
-            <div className="font-size-controls">
-              <button onClick={decreaseFontSize}>A–</button>
-              <button onClick={increaseFontSize}>A+</button>
-              <button className="filter-toggle" onClick={() => setFilterOpen(true)}>
-                Категории {filterOpen ? '▲' : '▼'}
-              </button>
-            </div>
             <div className="search_input">
               <input
                 type="text"
@@ -61,6 +54,17 @@ export default function Price() {
                 className="search-input"
               />
             </div>
+            <div className="font-size-controls">
+              <button onClick={decreaseFontSize}>A-</button>
+              <button onClick={increaseFontSize}>A+</button>
+              <button
+                className="filter-toggle"
+                onClick={() => setFilterOpen(prev => !prev)}
+              >
+                Ассортимент
+              </button>
+            </div>
+
           </div>
         </div>
       </div>
@@ -68,7 +72,7 @@ export default function Price() {
       <div className={`filter_panel ${filterOpen ? 'open' : ''}`}>
 
         <div className="category_filter">
-          <h1>Категории:</h1>
+          <h1>Выберите категорию:</h1>
           <div className="category_list">
             {categories.map((cat) => (
               <button

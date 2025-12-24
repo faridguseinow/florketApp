@@ -1,11 +1,11 @@
 .pricelist_container {
-    padding: 72px 16px 93px;
+    padding: 72px 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 16px;
-    font-family: var(--f-regular);
+    font-family: var(--f-Medium);
 
     .googlesheets_container {
         width: -webkit-fill-available;
@@ -18,12 +18,17 @@
         left: 0;
         z-index: 99;
         margin-top: 16px;
+        background: none;
+        // background: url("/src/assets/icons/512x512.png");
+        // background-repeat: no-repeat;
+        // background-position: center;
+        // background-size: cover;
 
         .titles {
             width: 100%;
             padding: 56px 16px 16px;
             border-radius: 16px;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(3px);
             box-shadow: 0 2px 10px var(--shadow);
 
             .title_left {
@@ -36,6 +41,7 @@
                 h1 {
                     font-size: 24px;
                     font-family: var(--f-bold);
+                    color: var(--text2);
                 }
 
                 .font-size-controls {
@@ -43,10 +49,11 @@
                     gap: 8px;
                     align-items: center;
                     justify-content: center;
+                    color: var(--text2);
 
                     button {
                         width: 56px;
-                        background: var(--bg);
+                        background: var(--color-primary);
                         border: 0 !important;
                     }
 
@@ -63,15 +70,15 @@
                     max-width: 1024px;
 
                     input {
-                        background: var(--bg);
+                        background: var(--color-primary);
                         border: 0;
                         width: 100%;
                         height: 36px;
-                        border-radius: 8px;
+                        border-radius: 16px;
                         color: var(--text);
                         font-size: 16px;
                         padding: 16px;
-                        font-family: var(--f-regular);
+                        font-family: var(--f-Medium);
                     }
                 }
             }
@@ -87,6 +94,7 @@
             }
         }
     }
+
     .filter_panel {
         display: flex;
         flex-direction: column;
@@ -114,21 +122,21 @@
             gap: 16px;
 
             h1 {
+                text-align: center;
                 font-size: 24px;
                 font-family: var(--f-bold);
             }
 
             .category_list {
+                display: flex;
+                flex-direction: column;
                 button {
-                    margin: 3px;
+                    margin: 5px;
+                    background: var(--text);
+                    color: var(--text2);
+                    font-family: var(--f-bold);
                 }
             }
         }
     }
-}
-
-button {
-    padding: 8px;
-    background: var(--bg);
-    color: var(--text);
 }

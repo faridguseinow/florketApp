@@ -14,12 +14,9 @@ import './reset.css';
 
 import Contacts from './pages/Contacts';
 import Price from './pages/Price';
-import Logistics from './pages/Logistics';
 
 import Header from './layouts/Header';
 import Footer from './layouts/Footer';
-
-import PinLock from "./PinLock";
 
 import InstallMobileIcon from '@mui/icons-material/InstallMobile';
 
@@ -81,7 +78,7 @@ function SetupHandlers() {
   return (
     showInstall && (
       <button className="install-btn" onClick={handleInstall}>
-        <InstallMobileIcon />Установить приложение
+        <InstallMobileIcon/>Установить приложение
       </button>
     )
   );
@@ -90,32 +87,23 @@ function SetupHandlers() {
 // ———————————————
 // Основной компонент
 function App() {
-  const [unlocked, setUnlocked] = useState(false); // состояние блокировки
-
   return (
-    <>
-      {unlocked ? (
-        <Router>
-          <AliveScope>
-            <ScrollHandler />
-            <SetupHandlers />
+    <Router>
+      <AliveScope>
+        <ScrollHandler />
+        <SetupHandlers />
 
-            <Header />
+        <Header />
 
-            <Routes>
-              <Route path="/contacts" element={<KeepAlive><Contacts /></KeepAlive>} />
-              <Route path="/price" element={<KeepAlive><Price /></KeepAlive>} />
-              <Route path="/logistics" element={<KeepAlive><Logistics /></KeepAlive>} />
-              <Route path="*" element={<Navigate to="/price" replace />} />
-            </Routes>
+        <Routes>
+          <Route path="/contacts" element={<KeepAlive><Contacts /></KeepAlive>} />
+          <Route path="/price" element={<KeepAlive><Price /></KeepAlive>} />
+          <Route path="*" element={<Navigate to="/price" replace />} />
+        </Routes>
 
-            <Footer />
-          </AliveScope>
-        </Router>
-      ) : (
-        <PinLock onUnlock={() => setUnlocked(true)} />
-      )}
-    </>
+        <Footer />
+      </AliveScope>
+    </Router>
   );
 }
 
